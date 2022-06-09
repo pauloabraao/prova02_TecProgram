@@ -121,7 +121,7 @@ public class Leitura {
 		}*/
 		for (Personagem p : personagens.personagens) {
 			for (Personagem p2 : personagens2.personagens) {
-				jogo.iniciar(p, p2);
+				jogo.iniciar(p, p2, quantidadeDeBatalhas);
 			}
 		}
 	}

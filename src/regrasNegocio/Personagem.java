@@ -46,6 +46,11 @@ public class Personagem {
 	}
 
 	
+	public void setPontuacao(int pontuacao) {
+		this.pontuacao = pontuacao;
+	}
+
+
 	public ArrayList<Integer> getListaAcoes(){
 		return listaAcoes;
 	}
