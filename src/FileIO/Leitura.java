@@ -66,15 +66,13 @@ public class Leitura {
 					lista2 = new ArrayList<>();
 					p.setNome(splitted[4]);
 					p.setTipo(splitted[3]);
-					for (int i = 0; i < 10; i++) {
-						
+					for (int i = 0; i < 10; i++) {						
 						num = Integer.parseInt(splitted[i + 7]);
 						lista.add(num);
 						
 					}
 					p.setListaAcoes(lista);
-					for (int i = 0; i < 10; i++) {
-						
+					for (int i = 0; i < 10; i++) {	
 						num = Integer.parseInt(splitted[i + 17]);
 						lista2.add(num);	
 					}
@@ -119,9 +117,9 @@ public class Leitura {
 			
 			p.imprimirListaDefesa();
 		}*/
-		for (Personagem p : personagens.personagens) {
+		for (Personagem p1 : personagens.personagens) {
 			for (Personagem p2 : personagens2.personagens) {
-				jogo.iniciar(p, p2, quantidadeDeBatalhas);
+				jogo.iniciar(p1, p2, quantidadeDeBatalhas);
 			}
 		}
 		
