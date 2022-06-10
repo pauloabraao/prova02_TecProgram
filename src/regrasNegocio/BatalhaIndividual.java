@@ -89,6 +89,7 @@ public class BatalhaIndividual {
 	}
 	public void atribuirPontuacaoP2(Personagem p1, Personagem p2, Personagem o, Personagem n,
 			Personagem c, Personagem m, Personagem t, Personagem cp, int i, int j) {
+		
 		if(p2.getTipo().equals(ORC)) {
 			if(p2.getListaAcoes().get(i).equals(4)) {
 				o.setPontuacao(o.getPontuacao()+(2*p2.getListaAcoes().get(i)- p1.getListaDefesa().get(j)));
@@ -160,6 +161,8 @@ public class BatalhaIndividual {
 				}
 			}
 		}
+		
+		
 	}
 	
 	

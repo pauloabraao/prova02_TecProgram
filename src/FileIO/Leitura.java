@@ -20,6 +20,7 @@ public class Leitura {
 	ArrayList<Integer> lista2;
 	ListadePersonagens personagens = new ListadePersonagens();
 	ListadePersonagens personagens2 = new ListadePersonagens();
+	
 	Personagem p = new Personagem();
 	Personagem p2 = new Personagem();
 	Jogo jogo = new Jogo();
@@ -27,6 +28,7 @@ public class Leitura {
 
 	int contadorDeLinha = 0;
 	int quantidadeDeBatalhas;
+	int combateIndividual=0;
 	
 	public Leitura() {
 		linhas = new ArrayList<String>();
@@ -59,8 +61,13 @@ public class Leitura {
 				
 			}else {
 				if (contadorDeLinha != (quantidadeDeBatalhas + 1)) {
+					combateIndividual++;
+
 					System.out.println("Linha " + contadorDeLinha);
 					String[] splitted = linha.split(";");
+					
+					
+					
 			            
 					lista = new ArrayList<>();
 					lista2 = new ArrayList<>();
@@ -97,6 +104,10 @@ public class Leitura {
 					}
 					p2.setListaDefesa(lista2);
 					personagens2.personagens.add(p2);
+					
+					
+					
+					jogo.iniciar(p, p2, quantidadeDeBatalhas, splitted[4], splitted[6]);
 				}
 			}
 		}	
@@ -117,11 +128,20 @@ public class Leitura {
 			
 			p.imprimirListaDefesa();
 		}*/
-		for (Personagem p1 : personagens.personagens) {
-			for (Personagem p2 : personagens2.personagens) {
-				jogo.iniciar(p1, p2, quantidadeDeBatalhas);
+		
+		/*for (int i = 0; i < personagens.personagens.size()-1; i++) {
+			for (int j = 0; j< personagens2.personagens.size()-1; j++) {
+				jogo.iniciar(personagens.personagens.get(i), personagens2.personagens.get(j), quantidadeDeBatalhas);
+				
 			}
-		}
+		}*/
+		
+		
+				
+				
+				
+				
+		
 		
 		
 	}
