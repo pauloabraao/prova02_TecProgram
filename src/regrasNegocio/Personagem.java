@@ -6,7 +6,7 @@ import java.util.Iterator;
 import FileIO.Leitura;
 
 public class Personagem {
-
+	
 
 	protected  String nome;
 	protected String tipo;
@@ -17,8 +17,7 @@ public class Personagem {
 
 	
 	public Personagem() {
-		this.nome= nome;
-		this.tipo = tipo;
+		
 	}
 	
 		
@@ -81,18 +80,5 @@ public class Personagem {
 			System.out.print(integer + " ");
 		}
 		System.out.println("\n");
-	}
-	
-	public String listaDeAcoesOrganizadas() {
-		String saida="";
-		for (Integer i : listaAcoes) {
-			saida = saida +  i + " - "; 
-		}
-		return saida;
-	}
-	
-	public int tamanhoListaAcoes() {
-		return listaAcoes.size();
-	}
-	
+	}	
 }

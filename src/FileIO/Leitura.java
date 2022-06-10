@@ -83,8 +83,8 @@ public class Leitura {
 					
 					lista = new ArrayList<>();
 					lista2 = new ArrayList<>();
-					p2.setNome(splitted[5]);
-					p2.setTipo(splitted[6]);
+					p2.setNome(splitted[6]);
+					p2.setTipo(splitted[5]);
 					for (int i = 0; i < 10; i++) {
 						
 						num = Integer.parseInt(splitted[i + 27]);
@@ -124,6 +124,8 @@ public class Leitura {
 				jogo.iniciar(p, p2, quantidadeDeBatalhas);
 			}
 		}
+		
+		
 	}
 	
 	public ArrayList<Personagem> listadePersonagens() {
