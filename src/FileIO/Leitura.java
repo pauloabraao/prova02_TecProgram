@@ -9,9 +9,15 @@ import java.nio.file.Files;
 import java.nio.file.Paths;
 import java.util.ArrayList;
 
+import regrasNegocio.Cafezito;
+import regrasNegocio.Copinho;
 import regrasNegocio.Jogo;
 import regrasNegocio.ListadePersonagens;
+import regrasNegocio.Morfel;
+import regrasNegocio.Neo;
+import regrasNegocio.Oraculo;
 import regrasNegocio.Personagem;
+import regrasNegocio.Trinity;
 
 public class Leitura {
 	int num = 0;
@@ -20,10 +26,18 @@ public class Leitura {
 	ArrayList<Integer> lista2;
 	ListadePersonagens personagens = new ListadePersonagens();
 	ListadePersonagens personagens2 = new ListadePersonagens();
+	public ArrayList<Morfel> morfeus = new  ArrayList<>();
 	
 	Personagem p = new Personagem();
 	Personagem p2 = new Personagem();
 	Jogo jogo = new Jogo();
+	
+	Morfel m = new Morfel();
+	Copinho cp = new Copinho();
+	Cafezito c = new Cafezito();
+	Trinity t = new Trinity();
+	Neo n = new Neo();
+	Oraculo o = new Oraculo();
 	
 
 	int contadorDeLinha = 0;
@@ -51,6 +65,7 @@ public class Leitura {
 			e.printStackTrace();
 		}
 	}
+	
 
 	public void splitLinha(String linha) {
 
@@ -65,10 +80,7 @@ public class Leitura {
 
 					System.out.println("Linha " + contadorDeLinha);
 					String[] splitted = linha.split(";");
-					
-					
-					
-			            
+   
 					lista = new ArrayList<>();
 					lista2 = new ArrayList<>();
 					p.setNome(splitted[4]);
@@ -107,7 +119,9 @@ public class Leitura {
 					
 					
 					
-					jogo.iniciar(p, p2, quantidadeDeBatalhas, splitted[4], splitted[6]);
+					jogo.iniciar(p, p2,jogo.novoOrc(p, p2, splitted[4], splitted[6]),
+							jogo.novoNeo(p, p2, splitted[4], splitted[6]),jogo.novoCaf(p, p2, splitted[4], splitted[6]), jogo.novoMorfeu(p, p2, splitted[4], splitted[6]),
+							jogo.novoTri(p, p2, splitted[4], splitted[6]), jogo.novoCop(p, p2, splitted[4], splitted[6]), quantidadeDeBatalhas, splitted[4], splitted[6]);
 				}
 			}
 		}	

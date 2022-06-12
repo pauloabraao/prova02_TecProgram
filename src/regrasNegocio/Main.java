@@ -7,7 +7,7 @@ public class Main {
 	public static void main(String[] args) {
 		
 		Leitura leitura = new Leitura();
-		leitura.ler("dados/BF_2.csv");
+		leitura.ler("dados/BF_1.csv");
 
 	}
 }

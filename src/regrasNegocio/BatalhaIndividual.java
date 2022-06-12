@@ -9,36 +9,23 @@ public class BatalhaIndividual {
 	String TRI = "TRI";
 	
 	
-	private Personagem vencedor;
+	
 	private  int codigo;
+	
 
 	public BatalhaIndividual(int codigo) {
 		this.codigo = codigo;
 	}
 
-
-	public Personagem getVencedor() {
-		return vencedor;
-	}
-
+	
 
 	public int getCodigo() {
 		return codigo;
 	}
+	
+	
 
 
-	private int tamanhoListasConsideradas(Personagem p1, Personagem p2) {
-		int tamanhoListaAcoes = 0;
-
-		if (p1.getListaAcoes().size() > p2.getListaAcoes().size()) {
-			tamanhoListaAcoes = p2.getListaAcoes().size();
-		} else {
-			tamanhoListaAcoes = p1.getListaAcoes().size();
-		}
-
-		return tamanhoListaAcoes;
-
-	}
 	
 	public void atribuirPontuacaoP1(Personagem p1, Personagem p2, Personagem o, Personagem n,
 			Personagem c, Personagem m, Personagem t, Personagem cp, int i, int j) {
@@ -109,6 +96,7 @@ public class BatalhaIndividual {
 				c.setPontuacao(c.getPontuacao()+(p2.getListaAcoes().get(i)- p1.getListaDefesa().get(j)));
 			}
 		} if(p2.getTipo().equals(MOR)) {
+			
 			if(p2.getListaAcoes().get(i).equals(7)) {
 				m.setPontuacao(m.getPontuacao()+(2*p2.getListaAcoes().get(i)- p1.getListaDefesa().get(j)));
 			}else {
@@ -153,6 +141,7 @@ public class BatalhaIndividual {
 			for(int j = 0; j< p1.getListaDefesa().size()-1; j++) {
 				
 				if(p2.getListaAcoes().get(i)> p1.getListaDefesa().get(j)) {
+				
 					atribuirPontuacaoP2(p1, p2, o, n,c, m, t, cp, i, j);
 					//p2.setPontuacao(p2.getPontuacao()+1);
 				}else if(p2.getListaAcoes().get(i)< p1.getListaDefesa().get(j)) {

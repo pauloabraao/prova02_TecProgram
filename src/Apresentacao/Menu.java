@@ -78,7 +78,7 @@ public class Menu {
 			t.setNome(p1.getNome());
 			System.out.println("Nome: "+t.getNome()+"\nPontuação: " + t.getPontuacao());
 			
-		}else if(p2.getTipo().equals(TRI)) {
+		} if(p2.getTipo().equals(TRI)) {
 			t.setNome(p2.getNome());
 			System.out.println("Nome: "+t.getNome()+"\nPontuação: " + t.getPontuacao());
 			
