@@ -26,19 +26,26 @@ public class Leitura {
 	ArrayList<Integer> lista2;
 	ListadePersonagens personagens = new ListadePersonagens();
 	ListadePersonagens personagens2 = new ListadePersonagens();
-	public ArrayList<Morfel> morfeus = new  ArrayList<>();
-	
+	Escrita escrita = new Escrita();
 	Personagem p = new Personagem();
 	Personagem p2 = new Personagem();
 	Jogo jogo = new Jogo();
 	
-	Morfel m = new Morfel();
-	Copinho cp = new Copinho();
-	Cafezito c = new Cafezito();
-	Trinity t = new Trinity();
-	Neo n = new Neo();
-	Oraculo o = new Oraculo();
+	String qntpersonagens = "";
 	
+	int qntMor;
+	int qntCop;
+	int qntCaf;
+	int qntOrc;
+	int qntNeo;
+	int qntTri;
+
+	String ORC = "ORC";
+	String NEO = "NEO";
+	String CAF = "CAF";
+	String MOR = "MOR";
+	String COP = "COP";
+	String TRI = "TRI";
 
 	int contadorDeLinha = 0;
 	int quantidadeDeBatalhas;
@@ -46,6 +53,7 @@ public class Leitura {
 	
 	public Leitura() {
 		linhas = new ArrayList<String>();
+		
 	}
 	public void ler(String caminho) {
 		BufferedReader br;
@@ -68,12 +76,10 @@ public class Leitura {
 	
 
 	public void splitLinha(String linha) {
-
 		if (linha != null) {
 			if (contadorDeLinha == 0) {
 				quantidadeDeBatalhas = Integer.parseInt(linha);
-				System.out.println("Quantidade de batalhas " + quantidadeDeBatalhas);
-				
+				System.out.println("Quantidade de batalhas " + quantidadeDeBatalhas);	
 			}else {
 				if (contadorDeLinha != (quantidadeDeBatalhas + 1)) {
 					combateIndividual++;
@@ -110,57 +116,85 @@ public class Leitura {
 					}
 					p2.setListaAcoes(lista);
 					for (int i = 0; i < 10; i++) {
-						
 						num = Integer.parseInt(splitted[i + 37]);
 						lista2.add(num);	
 					}
 					p2.setListaDefesa(lista2);
 					personagens2.personagens.add(p2);
 					
-					
-					
-					jogo.iniciar(p, p2,jogo.novoOrc(p, p2, splitted[4], splitted[6]),
-							jogo.novoNeo(p, p2, splitted[4], splitted[6]),jogo.novoCaf(p, p2, splitted[4], splitted[6]), jogo.novoMorfeu(p, p2, splitted[4], splitted[6]),
-							jogo.novoTri(p, p2, splitted[4], splitted[6]), jogo.novoCop(p, p2, splitted[4], splitted[6]), quantidadeDeBatalhas, splitted[4], splitted[6]);
+					jogo.iniciar(p, p2);
 				}
 			}
 		}	
 	}
 	
-	public void getLines() {
-		/*for (Personagem p : personagens.personagens) {
-			System.out.println("\nNome: "+p.getNome());
-			System.out.println("\nTipo: "+ p.getTipo());
-			p.imprimirLista();
-			
-			p.imprimirListaDefesa();
-		}
-		for (Personagem p : personagens2.personagens) {
-			System.out.println("\nNome: "+p.getNome());
-			System.out.println("\nTipo: "+ p.getTipo());
-			p.imprimirLista();
-			
-			p.imprimirListaDefesa();
-		}*/
+	public String getLines() {
+
 		
-		/*for (int i = 0; i < personagens.personagens.size()-1; i++) {
-			for (int j = 0; j< personagens2.personagens.size()-1; j++) {
-				jogo.iniciar(personagens.personagens.get(i), personagens2.personagens.get(j), quantidadeDeBatalhas);
+		for (Personagem p1 : personagens.personagens) {
+			
+			if(p1.getTipo().equals(MOR)) {
+				qntMor++;
 				
 			}
-		}*/
+			if(p1.getTipo().equals(CAF)) {
+				qntCaf++;
+				
+			}
+			if(p1.getTipo().equals(COP)) {
+				qntCop++;
+				
+			}
+			if(p1.getTipo().equals(ORC)) {
+				qntOrc++;
+				
+			}
+			if(p1.getTipo().equals(NEO)) {
+				qntNeo++;
+				
+			}
+			if(p1.getTipo().equals(TRI)) {
+				qntTri++;
+				
+			}
+			
+		}
+		for (Personagem p2 : personagens2.personagens) {
+			
+			if(p2.getTipo().equals(MOR)) {
+				qntMor++;
+				
+			}
+			if(p2.getTipo().equals(CAF)) {
+				qntCaf++;
+				
+			}
+			if(p2.getTipo().equals(COP)) {
+				qntCop++;
+				
+			}
+			if(p2.getTipo().equals(ORC)) {
+				qntOrc++;
+				
+			}
+			if(p2.getTipo().equals(NEO)) {
+				qntNeo++;
+				
+			}
+			if(p2.getTipo().equals(TRI)) {
+				qntTri++;
+				
+			}
+		}
 		
+		qntpersonagens = "MOR=" + qntMor +";"+ "CAF="+qntCaf +";"+"COP="+qntCop+";"
+					+"ORC="+qntOrc+";"+"NEO="+qntNeo+";"+"TRI=" +qntTri+";";
+		jogo.string = qntpersonagens;
 		
-				
-				
-				
-				
-		
+		return qntpersonagens;
 		
 		
 	}
 	
-	public ArrayList<Personagem> listadePersonagens() {
-		return personagens.personagens;
-	}
+	
 }

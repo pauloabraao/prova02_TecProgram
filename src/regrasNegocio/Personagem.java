@@ -6,19 +6,13 @@ import java.util.Iterator;
 import FileIO.Leitura;
 
 public class Personagem {
-	String ORC = "ORC";
-	String NEO = "NEO";
-	String CAF = "CAF";
-	String MOR = "MOR";
-	String COP = "COP";
-	String TRI = "TRI";
 
 	protected  String nome;
 	protected String tipo;
-	protected int pontuacao;
-	protected boolean vencedor;
+	protected int pontuacao ;
 	private ArrayList<Integer> listaAcoes;
 	private ArrayList<Integer> listaDefesa;
+	
 	protected int superAtaque;
 	private int qntDePersonagem;
 
@@ -85,20 +79,6 @@ public class Personagem {
 		this.listaAcoes = lista;
 	}
 	
-	public void setListaElemento(ArrayList<Integer> lista){
-		
-		for (Integer integer : lista) {
-			integer*= 2;
-		}
-		this.listaAcoes = lista;
-	}
-	
-	public void setListaZero() {
-		for (Integer integer : listaAcoes) {
-			integer = 0;
-		}
-		
-	}
 	
 	public ArrayList<Integer> getListaDefesa() {
 		return listaDefesa;
